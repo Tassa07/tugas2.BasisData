@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Mahasiswa - Basis Data</title>
+  <style>
+    body {
+font-family: Arial, sans-serif;
+margin: 0;
+background: linear-gradient(135deg, #a64bf4, #ffffff);
+color: #333;
+transition: all 0.3s ease;
+overflow-x: hidden;
+overflow-y: auto;
+position: relative;
+}
+body.dark {
+background: linear-gradient(135deg, #2c003e, #1e1e1e);
+color: #eee;
+}
+#starCanvas {
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+z-index: 0;
+pointer-events: none;
+}
+.container {
+max-width: 800px;
+margin: 40px auto;
+background: rgba(255, 255, 255, 0.9);
+padding: 20px;
+border-radius: 12px;
+box-shadow: 0 0 15px rgba(0,0,0,0.15);
+position: relative;
+z-index: 1;
+transition: background 0.3s ease;
+}
+body.dark .container { background: rgba(44,44,44,0.9); }
+.profile { display: flex; flex-wrap: wrap; align-items: center; margin-bottom: 20px; gap: 20px; }
+.profile img {
+border-radius: 50%;
+width: 120px;
+height: 120px;
+object-fit: cover;
+border: 3px solid #a64bf4;
+transition: all 0.3s ease;
+}
+.profile img:hover { transform: scale(1.05); box-shadow: 0 0 15px #ff69b4; }
+.profile h1 { margin: 0; color: #444; }
+body.dark .profile h1 { color: #eee; }
+button {
+padding: 6px 12px;
+margin: 5px 5px 0 0;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+background: #a64bf4;
+color: #fff;
+transition: all 0.3s ease;
+}
+button:hover { background: #7b2cbf; }
+details {
+margin-bottom: 15px;
+border: 1px solid #ddd;
+border-radius: 8px;
+padding: 10px;
+background: #fefefe;
+transition: all 0.3s ease;
+}
+body.dark details { background: #3a3a3a; border-color: #555; }
+details p {
+text-align: justify;
+opacity: 0;
+transform: translateY(10px);
+transition: opacity 0.6s ease, transform 0.6s ease;
+}
+details[open] p { opacity: 1; transform: translateY(0); }
+blockquote {
+text-align: justify;
+font-style: italic;
+}
+.socials { margin-top: 20px; }
+.socials a {
+margin-right: 10px;
+text-decoration: none;
+color: #a64bf4;
+font-weight: bold;
+}
+.socials a:hover { text-decoration: underline; }
+.new-post {
+margin-top: 30px;
+padding: 15px;
+border-radius: 10px;
+background: #f0e6ff;
+}
+.new-post input, .new-post textarea {
+width: 100%;
+margin: 8px 0;
+padding: 8px;
+border: 1px solid #ccc;
+border-radius: 6px;
+} </style>
+
+<canvas id="starCanvas"></canvas>
+
+<div class="container">
+  <!-- Profil -->
+  <div class="profile">
+    <img id="profileImg" src="fototassaa.jpg" alt="Foto Profil Tassa"/>
+    <div>
+      <h1>🧕🏻Nama: Tassa Safitri</h1>
+      <p><b>🏫Kelas:</b> IF24B</p>
+      <p><b>🎓NIM:</b> 24416255201022</p>
+      <p><b>📩Email:</b> if24.tassasafitri@mhs.ubpkarawang.ac.id</p>
+    </div>
+  </div>
+  <!-- Sosial Media -->
+  <div class="socials">
+    <p>📌 Sosial Media & Website:</p>
+    <a href="https://www.instagram.com/_imsaaftr" target="_blank">Instagram</a>
+    <a href="https://www.ubp.ac.id" target="_blank">Website UBP</a>
+  </div>
+</div> 
+
+<!-- Deskripsi -->
+<blockquote>
+  “Mahasiswa aktif yang sedang belajar dan mendalami ilmu Basis Data untuk pengembangan aplikasi nyata.”
+</blockquote>
+
+  <div class="pertemuan"> 
+   <details> 
+    <summary>📘 Pertemuan 1</summary>
+    <div class="post-card">
+     <details>
+      <summary>💫 Apa yang anda harapkan dari MK Basis Data</summary>
+      <p>Saya berharap mata kuliah ini bisa memberikan pemahaman mendalam tentang bagaimana cara menyimpan, mengelola, dan mengolah data dengan baik. Selain itu, saya ingin belajar bagaimana basis data digunakan dalam dunia nyata untuk mendukung berbagai aplikasi. Dengan begitu, saya bisa menguasai teori sekaligus praktik sehingga lebih siap menghadapi dunia kerja.</p>
+    </details>
+  </div>
+  <div class="post-card">
+    <details>
+      <summary>🌟 Apa itu Basis Data</summary>
+      <p>Basis data adalah kumpulan data yang terorganisir dan saling terkait, yang disimpan secara sistematis agar mudah diakses, dikelola, dan diperbarui. Basis data digunakan hampir di semua bidang, mulai dari e-commerce, sistem perbankan, rumah sakit, hingga media sosial. Dengan basis data, informasi yang besar bisa disusun secara rapi, akurat, dan mudah ditemukan kapan saja.Tanpa basis data, sebuah aplikasi atau sistem informasi akan kesulitan mengatur data dalam jumlah banyak. Dengan basis data, data siswa bisa disimpan dalam tabel khusus, lalu dihubungkan dengan tabel nilai atau tabel mata pelajaran. Hal ini membuat data lebih rapi, konsisten, dan mudah dicari kapan pun diperlukan.</p>
+    </details>
+  </div>
+  <div class="post-card">
+    <details>
+      <summary>🪐 Apa itu Conceptual DB</summary>
+      <p>Conceptual Database adalah representasi abstrak dari struktur data secara keseluruhan. Biasanya digambarkan dengan <em>Entity Relationship Diagram (ERD)</em> untuk menjelaskan hubungan antar entitas tanpa memperhatikan aspek teknis penyimpanan. Model ini berguna agar kita memahami alur informasi dan hubungan data sebelum diimplementasikan ke dalam DBMS.Misalnya dalam sistem perpustakaan, kita bisa mengidentifikasi ada entitas Buku, Anggota, dan Peminjaman. Buku memiliki atribut seperti ID_Buku, Judul, dan Pengarang. Anggota memiliki atribut seperti ID_Anggota dan Nama. Peminjaman memiliki atribut seperti ID_Pinjam, Tanggal_Pinjam, dan Tanggal_Kembali. Lalu, hubungan yang terjadi adalah seorang anggota bisa meminjam banyak buku, dan satu buku bisa dipinjam berkali-kali oleh anggota yang berbeda. Model konseptual ini penting karena menjadi “gambaran besar” sebelum masuk ke tahap detail teknis.</p>
+    </details>
+  </div>
+
+  <div class="post-card">
+    <details>
+      <summary>🌙 Apa itu Physical Model</summary>
+      <p>Physical Model adalah implementasi nyata dari conceptual model dalam bentuk struktur penyimpanan pada DBMS. Di tahap ini, tabel, indeks, partisi, serta tipe data sudah didefinisikan dengan detail. Tujuan utama physical model adalah agar basis data bisa berjalan efisien, cepat diakses, dan tetap konsisten sesuai kebutuhan aplikasi.Jadi, physical model inilah yang benar-benar digunakan aplikasi ketika menyimpan dan mengolah data.Sebagai contoh, jika kita merancang sistem perpustakaan, di model konseptual kita hanya tahu ada entitas “Anggota”, “Buku”, dan “Peminjaman”, serta hubungan bahwa seorang anggota bisa meminjam banyak buku. Tapi dalam physical model, semua itu sudah dibuat dalam bentuk tabel nyata di database, misalnya tabel Anggota dengan kolom ID_Anggota, Nama, Alamat, dan No_HP; tabel Buku dengan kolom ID_Buku, Judul, Pengarang, dan Tahun; serta tabel Peminjaman yang memiliki relasi ke dua tabel tadi melalui foreign key. Implementasinya pun ditulis dalam bahasa SQL, sehingga database bisa langsung dijalankan dan digunakan oleh sistem.</p>
+    </details>
+  </div>
+</div>
+
+  <div class="pertemuan">
+    <details>
+      <summary>📘 Pertemuan 2</summary>
+      <div class="post-card">
+        <details>
+          <summary>📖 Postingan 1</summary>
+          <p>Link video Youtube: </p>
+        </details>
+        <details>
+          <summary>📖 Postingan 2</summary>
+          <p>🌙1. Apa itu attribute?</P>
+          Dalam Entity Relationship Diagram (ERD), entitas adalah objek yang datanya perlu disimpan di dalam basis data. Entitas ini bisa berupa sesuatu yang nyata seperti mahasiswa, dosen, atau mata kuliah, maupun berupa hal yang abstrak tergantung kebutuhan sistem. Misalnya dalam sistem akademik, mahasiswa dianggap sebagai entitas karena kampus perlu menyimpan berbagai informasi tentang mahasiswa, seperti identitas dan jurusan. Mata kuliah juga bisa dijadikan entitas karena setiap mata kuliah memiliki informasi yang unik, seperti kode dan jumlah SKS.</p>
+          <p>🪐2. Apa itu Entitas?</P>
+          <P>Entitas adalah sebuah objek atau hal yang datanya dianggap penting untuk disimpan dalam sebuah basis data. Dalam konteks basis data dan ERD (Entity Relationship Diagram), entitas bisa berupa sesuatu yang nyata maupun abstrak, selama hal tersebut memiliki informasi yang perlu dicatat.
+          Dalam sebuah toko online, ada beberapa hal penting yang perlu disimpan datanya. Nah, hal-hal itu disebut entitas. Contohnya:</P>
+        <P>•Entitas Produk → menyimpan data tentang barang yang dijual, seperti ID produk, nama produk, harga, dan stok.</P>
+        <P>•Entitas Pelanggan → menyimpan data pembeli, misalnya ID pelanggan, nama, email, alamat, dan nomor telepon.</P>
+        <P>•Entitas Pesanan → menyimpan data transaksi yang dilakukan, seperti nomor pesanan, tanggal pesanan, total harga, dan status pesanan.</P>
+        <P>•Entitas Penjual → menyimpan data tentang pemilik toko atau pihak yang menjual barang, seperti ID penjual, nama toko, dan alamat toko.</p>
+         <p>🌟3. Relasi dalam ERD</P>
+         <P>Relasi dalam ERD adalah hubungan yang menggambarkan bagaimana satu entitas berhubungan dengan entitas lain di dalam sebuah sistem. Jadi kalau entitas itu bisa diibaratkan sebagai “kata benda”, maka relasi adalah “kata kerja” yang menjelaskan interaksi antar entitas.
+       Misalnya dalam sistem akademik, ada entitas Mahasiswa dan entitas Mata Kuliah. Hubungan di antara keduanya adalah mahasiswa mengambil mata kuliah. Kata “mengambil” inilah yang disebut relasi. Begitu juga dengan entitas Dosen dan entitas Mata Kuliah, relasinya bisa berupa dosen mengajar mata kuliah.<P>
+        <P>•Entitas Mahasiswa</P>
+        <P>1.Atribut: NIM, Nama, Tanggal Lahir, Jurusan</P>
+        <P>•Entitas Mata Kuliah</P>
+         <P>1.Atribut: Kode Mata Kuliah, Nama Mata Kuliah, Jumlah SKS</P>
+        <P>•Entitas Dosen</P>
+         <P>1.Atribut: NIDN, Nama, Bidang Keahlian.</P>
+        <P>•Relasi</P>
+         <P>1.Mahasiswa mengambil Mata Kuliah</P>
+         <P>2.Dosen mengajar Mata Kuliah.</p>
+        </details>
+        </details>
+      </div>
+    </details>
+  </div>
+</div>
+
+
+<script>
+  // Mode gelap/terang
+  const toggleMode = document.createElement("button");
+  toggleMode.textContent = "🌙/☀ Mode";
+  toggleMode.style.marginTop = "10px";
+  toggleMode.onclick = () => document.body.classList.toggle("dark");
+  document.querySelector(".container").appendChild(toggleMode);
+
+  // Local Storage untuk postingan
+  const postList = document.getElementById("postList");
+  const addPostBtn = document.getElementById("addPost");
+
+  window.onload = () => {
+    let savedPosts = JSON.parse(localStorage.getItem("posts")) || [];
+    savedPosts.forEach(p => renderPost(p.title, p.content));
+  };
+
+  function renderPost(title, content) {
+    let div = document.createElement("div");
+    div.classList.add("post-card");
+    div.innerHTML = `<details open><summary>${title}</summary><p>${content}</p></details>`;
+    postList.appendChild(div);
+  }
+
+  addPostBtn.onclick = () => {
+    let title = document.getElementById("postTitle").value.trim();
+    let content = document.getElementById("postContent").value.trim();
+    if (title && content) {
+      renderPost(title, content);
+      savePost(title, content);
+      document.getElementById("postTitle").value = "";
+      document.getElementById("postContent").value = "";
+    } else {
+      alert("Judul dan isi postingan tidak boleh kosong!");
+    }
+  };
+
+  function savePost(title, content) {
+    let savedPosts = JSON.parse(localStorage.getItem("posts")) || [];
+    savedPosts.push({title, content});
+    localStorage.setItem("posts", JSON.stringify(savedPosts));
+  }
+
+  // Animasi bintang
+  const canvas = document.getElementById("starCanvas");
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let stars = [];
+  function createStar() {
+    stars.push({
+      x: Math.random() * canvas.width,
+      y: 0,
+      speed: 2 + Math.random() * 4,
+      radius: Math.random() * 2
+    });
+  }
+  setInterval(createStar, 100);
+
+  function drawStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "white";
+    stars.forEach((star, i) => {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+      ctx.fill();
+      star.y += star.speed;
+      if (star.y > canvas.height) stars.splice(i, 1);
+    });
+  }
+
+  function animate() {
+    drawStars();
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+
+</script>
+</body>
+</html>
+
